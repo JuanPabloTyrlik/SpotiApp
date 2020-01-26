@@ -9,8 +9,12 @@ import { SpotifyService } from '../../services/spotify.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor( private spotifyService: SpotifyService ) { 
-    this.spotifyService.getNewReleases();
+  newReleases: any[] = [];
+
+  constructor( private spotifyService: SpotifyService ) {
+    this.spotifyService.getNewReleases().subscribe( (data: any) => {
+      this.newReleases = data.albums.items;
+      console.log(this.newReleases); });
   }
 
   ngOnInit() {

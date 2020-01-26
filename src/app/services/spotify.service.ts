@@ -16,8 +16,6 @@ export class SpotifyService {
     // tslint:disable-next-line: max-line-length
     const headers = new HttpHeaders({Authorization: 'Bearer BQBNMwy2oQGpB4WYZTuZ2MTUa_WOgc0ofPQYPN8nO66e5NLEAMr3P1WtmzWrlCVtWl9ATm2rzGtIMnXGBY0'});
 
-    return this.httpClient.get('https://api.spotify.com/v1/browse/new-releases', {headers})
-                          .subscribe( data => {console.log(data);
-                          } );
+    return this.httpClient.get('https://api.spotify.com/v1/browse/new-releases', {headers});
   }
 }
