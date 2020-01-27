@@ -14,8 +14,17 @@ export class SpotifyService {
   getNewReleases() {
 
     // tslint:disable-next-line: max-line-length
-    const headers = new HttpHeaders({Authorization: 'Bearer BQBNMwy2oQGpB4WYZTuZ2MTUa_WOgc0ofPQYPN8nO66e5NLEAMr3P1WtmzWrlCVtWl9ATm2rzGtIMnXGBY0'});
+    const headers = new HttpHeaders({Authorization: 'Bearer BQA16zZitRZd0g4NjrFS4gr-jg_qZNi_p0wycgsXQ-Egx6BbDIwsWzvHghp8UdpHVHyG5FmCYZQxFoozAz0'});
 
     return this.httpClient.get('https://api.spotify.com/v1/browse/new-releases', {headers});
   }
+
+  getArtist(term: string) {
+
+    // tslint:disable-next-line: max-line-length
+    const headers = new HttpHeaders({Authorization: 'Bearer BQA16zZitRZd0g4NjrFS4gr-jg_qZNi_p0wycgsXQ-Egx6BbDIwsWzvHghp8UdpHVHyG5FmCYZQxFoozAz0'});
+
+    return this.httpClient.get(`https://api.spotify.com/v1/search?q=${term}&type=artist&limit=15`, {headers});
+  }
+
 }
