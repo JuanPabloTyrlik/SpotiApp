@@ -6,7 +6,7 @@
 
 <div class="card-columns animated fadeIn mt-3">
     <div *ngFor="let artist of artistas" class="card">
-        <img [src]="artist.images[0].url" class="card-img-top">
+        <img [src]="artist.images | noimage" class="card-img-top">
         <div class="card-body">
             <h5 class="card-title">{{ artist.name }}</h5>
         </div>
