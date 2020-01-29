@@ -4,11 +4,4 @@
     </div>
 </div>
 
-<div class="card-columns animated fadeIn mt-3">
-    <div *ngFor="let artist of artistas" class="card">
-        <img [src]="artist.images | noimage" class="card-img-top">
-        <div class="card-body">
-            <h5 class="card-title">{{ artist.name }}</h5>
-        </div>
-    </div>
-</div>
+<app-tarjetas [items]="artistas"></app-tarjetas>
