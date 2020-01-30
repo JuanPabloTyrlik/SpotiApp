@@ -10,11 +10,13 @@ import { SpotifyService } from '../../services/spotify.service';
 export class ArtistComponent implements OnInit {
 
   artist: any = {};
+  topTracks: any[] = [];
   loading = true;
 
   constructor( private activatedRoute: ActivatedRoute, private spotifyService: SpotifyService ) {
     this.activatedRoute.params.subscribe( params => {
-        this.getArtist(params['id']); });
+        this.getArtist(params['id']);
+        this.getTopTracks(params['id']); });
   }
 
   ngOnInit() {
@@ -27,5 +29,12 @@ export class ArtistComponent implements OnInit {
       this.artist = artist;
       this.loading = false; }
       );
+  }
+
+  getTopTracks( id: string ) {
+    this.spotifyService.getTopTracks(id).subscribe( topTracks => {
+      console.log(topTracks);
+      this.topTracks = topTracks;
+    });
   }
 }
