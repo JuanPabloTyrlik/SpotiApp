@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SpotifyService } from '../../services/spotify.service';
+import { error } from 'protractor';
 
 
 @Component({
@@ -11,14 +12,17 @@ export class HomeComponent implements OnInit {
 
   newReleases: any[] = [];
   loading = true;
+  error = false;
+  message: string;
 
   constructor( private spotifyService: SpotifyService ) {
     this.spotifyService.getNewReleases().subscribe( (data: any) => {
       this.newReleases = data;
-      
-      console.log(data);
-      
-      this.loading = false; });
+      this.loading = false; }, (error) => {
+        this.loading = false;
+        this.error = true;
+        this.message = error.error.error.message;
+       }  );
   }
 
   ngOnInit() {
