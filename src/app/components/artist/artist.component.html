@@ -17,7 +17,7 @@
 
 <div class="row m-5">
     <div class="col">
-        <table class="table text-white">
+        <table class="table text-white text-center">
             <thead>
                 <tr>
                     <td>Foto</td>
@@ -29,10 +29,10 @@
             <tbody>
                 <tr *ngFor="let track of topTracks">
                     <td><img [src]="track.album.images | noimage" [alt]="track.album.name" class="img-thumb"></td>
-                    <td>{{ track.album.name }}</td>
-                    <td>{{ track.name }}</td>
+                    <td class="align-middle">{{ track.album.name }}</td>
+                    <td class="align-middle">{{ track.name }}</td>
                     <td>
-                        <iframe [src]="track.id | domSeguro" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                        <iframe [src]="track.id | domSeguro" width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                     </td>
                 </tr>
             </tbody>
